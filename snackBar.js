@@ -145,7 +145,6 @@ export default class SnackBar extends Component {
 
     setSnackBarOpacity = () => {
         let leftFactor = Math.abs(this.snackBarSwipeAbleStyle.left) / width;
-
         if (leftFactor > 0.5) {
             this.snackBarSwipeAbleStyle.opacity = 0;
             this.shouldHide = true;
@@ -175,7 +174,7 @@ export default class SnackBar extends Component {
             shadowOffset: {height: 3, width: 1},
             shadowOpacity: 0.4, elevation: 24,
         }, this.snackBarSwipeAbleStyle,
-            position === 'top' && {top: top},
+            position === 'top' && {top: this.state.topMargin ? this.state.topMargin : top},
             position === 'bottom' && {bottom: bottom}
         ];
         let buttonTextStyle = [{color: buttonColor, fontFamily: "Roboto-Medium", textAlign: 'left', fontSize: 14}];
